@@ -1,0 +1,41 @@
+{
+  "name": "avro2jsonschema",
+  "version": "0.0.1",
+  "description": "Converts avro schema to json schema",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrachovDmytro/avro2jsonschema.git"
+  },
+  "keywords": [
+    "avro",
+    "avro-schema",
+    "json",
+    "json-schema",
+    "converter"
+  ],
+  "author": "Dmytro Drachov <dmytro.drachov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DrachovDmytro/avro2jsonschema/issues"
+  },
+  "homepage": "https://github.com/DrachovDmytro/avro2jsonschema#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.1.0",
+    "husky": "^4.2.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  }
+}
