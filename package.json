@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/DrachovDmytro/avro2jsonschema#readme",
   "devDependencies": {
+    "commitizen": "^4.0.5",
     "cz-conventional-changelog": "^3.1.0",
     "husky": "^4.2.5"
   },
