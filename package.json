@@ -2,7 +2,7 @@
   "name": "avro2jsonschema",
   "version": "0.0.1",
   "description": "Converts avro schema to json schema",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "commit": "git-cz"
@@ -38,5 +38,8 @@
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
+  },
+  "dependencies": {
+    "avsc": "^5.4.21"
   }
 }
