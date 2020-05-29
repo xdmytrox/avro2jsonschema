@@ -48,7 +48,7 @@ class Avro2JSONSchemaConverter {
   /**
    * @param {ConverterOptions} options
    */
-  constructor(options) {
+  constructor(options = {}) {
     this.setupLogicalTypes(options.logicalTypes)
   }
 
@@ -103,8 +103,7 @@ class Avro2JSONSchemaConverter {
     const schema = {
       type: 'object',
       properties: {},
-      required: [],
-      additionalProperties: false
+      required: []
     }
     type.fields.forEach((field, index) => {
       const convert = this.resolveConverter(field.type)
