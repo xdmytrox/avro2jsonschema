@@ -1,6 +1,6 @@
 {
   "name": "avro2jsonschema",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Converts avro schema to json schema",
   "main": "dist/index.js",
   "scripts": {
