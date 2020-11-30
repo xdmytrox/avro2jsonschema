@@ -32,10 +32,29 @@ const avro = require('avsc')
 const decimal = function (type) {
   return { type: 'number' }
 }
+
+/**
+ * @this {Avro2JSONSchemaConverter}
+ * @param {AvroLogicalType} type
+ */
+const timestampMillis = function (type) {
+  return { type: 'integer', minimum: 1, maximum: 2 ** 63 - 1 }
+}
+
+
+/**
+ * @this {Avro2JSONSchemaConverter}
+ * @param {AvroLogicalType} type
+ */
+const date = function (type) {
+  return { type: 'integer', minimum: 1, maximum: 2 ** 63 - 1 }
+}
   
 /** @type {ConverterOptions['logicalTypes']} */
 const defaultLogicalTypes = {
-  decimal
+  decimal,
+  date,
+  'timestamp-millis': timestampMillis
 }
 
 
@@ -105,13 +124,13 @@ class Avro2JSONSchemaConverter {
       properties: {},
       required: []
     }
-    type.fields.forEach((field, index) => {
+    type.fields.forEach((field) => {
       const convert = this.resolveConverter(field.type)
       schema.properties[field.name] = convert(field.type)
       if (field.defaultValue() !== undefined) {
         schema.properties[field.name].default = field.defaultValue()
       } else {
-        schema.required[index] = field.name
+        schema.required.push(field.name)
       }
     })
     return schema
