@@ -202,7 +202,7 @@ class Avro2JSONSchemaConverter {
    */
   convertUnion(type) {
     return {
-      oneOf: type.types.map(type => {
+      anyOf: type.types.map(type => {
         return this.resolveConverter(type)(type)
       })
     }
